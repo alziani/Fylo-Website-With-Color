@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script src="js/script.js" defer></script>
     <title>Fylo Website With Color Picker</title>
   </head>
   <body class="dark:bg-darkBlue dark:text-white font-opensans">
@@ -22,10 +34,10 @@
           class="bg-logo-light-mode dark:bg-logo-dark-mode bg-no-repeat w-48 h-20"
         ></div>
         <div class="flex space-x-4 items-center">
-          <a href="#features" class="hover:text-accentCyan">Features</a>
+          <a href="#faetures" class="hover:text-accentCyan">Features</a>
           <a href="#testimonials" class="hover:text-accentCyan">Testimonials</a>
           <button
-            id="them-toggle"
+            id="theme-toggle"
             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
           >
             <svg
@@ -41,7 +53,7 @@
             </svg>
             <svg
               id="theme-toggle-light-icon"
-              class="w-5 h-5"
+              class="w-5 h-5 hidden"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -277,5 +289,43 @@
         </div>
       </div>
     </section>
+
+    <!-- The Footer -->
+    <footer class="dark:bg-darkBlue2">
+      <div
+        class="contaner mx-auto px-5 pb-10 flex flex-col space-y-24 md:flex-row md:space-y-0 md:justify-between"
+      >
+        <div class="flex flex-col space-y-6">
+          <div class="flex space-x-6">
+            <img src="./images/icon-phone.svg" alt="" />
+            <span>+1-543-123-4567</span>
+          </div>
+          <div class="flex space-x-6">
+            <img src="./images/icon-email.svg" alt="" />
+            <span>zianiabderrahim@gmail.com</span>
+          </div>
+        </div>
+        <div
+          class="flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10 md:justify-items-start"
+        >
+          <div class="flex flex-col space-y-5 md:justify-start">
+            <p class="text-xl md:text-sm">About</p>
+            <p class="text-xl md:text-sm">Jobs</p>
+            <p class="text-xl md:text-sm">Press</p>
+            <p class="text-xl md:text-sm">Blog</p>
+          </div>
+          <div class="flex flex-col space-y-5">
+            <p class="text-xl md:text-sm">Contact Us</p>
+            <p class="text-xl md:text-sm">Terms</p>
+            <p class="text-xl md:text-sm">Privacy</p>
+          </div>
+        </div>
+        <div class="flex space-x-4 justify-center md:items-start">
+          <img src="./images/facebook.svg" alt="" />
+          <img src="./images/instagram.svg" alt="" />
+          <img src="./images/twitter.svg" alt="" />
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
